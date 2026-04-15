@@ -13,7 +13,7 @@ export function generatePortfolioMetadata(portfolio: Portfolio): Metadata {
     description,
     alternates: { canonical: `${BASE_URL}/portfolio/${portfolio.id}` },
     openGraph: {
-      title: `${title} | 이반장 도배`,
+      title: `${title} | 도배에진심이반장`,
       description,
       url: `${BASE_URL}/portfolio/${portfolio.id}`,
       images: mainImage

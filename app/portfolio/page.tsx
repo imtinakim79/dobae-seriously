@@ -6,8 +6,8 @@ import { getPortfolios } from '@/lib/portfolio-store';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: '시공 갤러리 | 이반장 도배',
-  description: '서울·경기 아파트·빌라 도배 시공 사례 모음. 마포구, 송파구, 노원구 등 실제 시공 전후 사진을 확인해보세요.',
+  title: '시공 갤러리 | 도배의진심 이반장',
+  description: '서울·인천·경기 아파트·빌라·원룸·고시원 도배 시공 사례 모음. 강서구, 일산, 인천, 검단 등 실제 시공 전후 사진을 확인해보세요.',
   alternates: { canonical: 'https://dobae-seriously.com/portfolio' },
 };
 
@@ -22,7 +22,7 @@ export default function PortfolioPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="section-title">시공 갤러리</h1>
           <p className="section-subtitle">
-            직접 시공한 아파트·빌라 도배 사례를 확인해보세요.<br />
+            직접 시공한 아파트·빌라 도배·원룸·고시원 사례를 확인해보세요.<br />
             실제 현장 사진과 함께 시공 정보를 제공합니다.
           </p>
         </div>

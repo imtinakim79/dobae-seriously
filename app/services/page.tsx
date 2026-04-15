@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { services } from '@/data/services';
 
 export const metadata: Metadata = {
-  title: '서비스 안내 | 이반장 도배',
-  description: '전체 도배·부분 도배·입주 도배·친환경 도배·상업공간·하자 보수까지. 이반장 도배의 모든 서비스를 확인하세요.',
+  title: '서비스 안내 | 도배에진심이반장',
+  description: '전체 도배·부분 도배·입주 도배·친환경 도배·상업공간·하자 보수까지. 도배에진심이반장의 모든 서비스를 확인하세요.',
   alternates: { canonical: 'https://dobae-seriously.com/services' },
 };
 

@@ -27,7 +27,7 @@ export default function AboutPage() {
           </div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">이반장 소개</h1>
           <p className="text-brand-100 text-lg leading-relaxed max-w-xl mx-auto">
-            20년간 오직 도배 하나만 해온 장인입니다.<br />
+            도배에 진심 이반장입니다.<br />
             처음 연락부터 시공 완료까지, 직접 책임집니다.
           </p>
         </div>
@@ -63,7 +63,7 @@ export default function AboutPage() {
             {/* Stats */}
             <div className="space-y-4">
               {[
-                { icon: '🏆', label: '시공 경력', value: '20년+', desc: '2004년부터 현재까지' },
+                { icon: '🏆', label: '도배사자격증', value: '전문자격증', desc: '2004년부터 현재까지' },
                 { icon: '🏠', label: '누적 시공', value: '3,000건+', desc: '아파트·빌라·상업공간' },
                 { icon: '⭐', label: '고객 만족도', value: '98%', desc: '재의뢰·추천 비율 포함' },
                 { icon: '📍', label: '시공 지역', value: '서울·경기', desc: '전 지역 출장 가능' },

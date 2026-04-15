@@ -14,11 +14,11 @@ const notoSansKr = Noto_Sans_KR({
 export const metadata: Metadata = {
   metadataBase: new URL('https://dobae-seriously.com'),
   title: {
-    default: '도배에 진심 이반장 | 서울·경기 도배 전문',
+    default: '도배에 진심 이반장 | 서울·인천·경기 도배 전문',
     template: '%s | 도배에 진심 이반장',
   },
   description:
-    '서울·경기 지역 아파트·빌라 도배 전문. 20년 경력의 이반장이 직접 시공합니다. 합리적인 가격, 깔끔한 마무리, 빠른 일정 보장.',
+    '서울·인천·경기 지역 아파트·빌라 도배 전문. 20년 경력의 이반장이 직접 시공합니다. 합리적인 가격, 깔끔한 마무리, 빠른 일정 보장.',
   keywords: ['도배', '도배 전문', '아파트 도배', '서울 도배', '경기 도배', '도배에 진심 이반장', '실크벽지', '합지도배'],
   authors: [{ name: '도배에 진심 이반장' }],
   creator: '도배에 진심 이반장',
@@ -27,18 +27,23 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     url: 'https://dobae-seriously.com',
     siteName: '도배에 진심 이반장',
-    title: '도배에 진심 이반장 | 서울·경기 도배 전문',
-    description: '서울·경기 지역 아파트·빌라 도배 전문. 20년 경력의 이반장이 직접 시공합니다.',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: '도배에 진심 이반장 — 서울·경기 도배 전문업체' }],
+    title: '도배에 진심 이반장 | 서울·인천·경기 도배 전문',
+    description: '서울·인천·경기 지역 아파트·빌라 도배 전문. 20년 경력의 이반장이 직접 시공합니다.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: '도배에 진심 이반장 — 서울·인천·경기 도배 전문업체' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '도배에 진심 이반장 | 서울·경기 도배 전문',
-    description: '서울·경기 지역 아파트·빌라 도배 전문. 20년 경력의 이반장이 직접 시공합니다.',
+    title: '도배에 진심 이반장 | 서울·인천·경기 도배 전문',
+    description: '서울·인천·경기 지역 아파트·빌라 도배 전문. 20년 경력의 이반장이 직접 시공합니다.',
     images: ['/og-image.jpg'],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
-  verification: { google: 'YOUR_GOOGLE_SEARCH_CONSOLE_TOKEN' },
+  verification: {
+    google: 'YOUR_GOOGLE_SEARCH_CONSOLE_TOKEN',  // https://search.google.com/search-console 에서 발급
+    other: {
+      'naver-site-verification': 'YOUR_NAVER_TOKEN',  // https://searchadvisor.naver.com 에서 발급
+    },
+  },
 };
 
 /* ──────────────────────────────────────────
@@ -49,7 +54,7 @@ const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: '도배에 진심 이반장',
-  description: '서울·경기 지역 아파트, 빌라, 상업공간 도배 시공 전문. 합리적인 가격과 깔끔한 마무리.',
+  description: '서울·인천·경기 지역 아파트, 빌라, 상업공간 도배 시공 전문. 합리적인 가격과 깔끔한 마무리.',
   url: 'https://dobae-seriously.com',
   telephone: '010-5388-4628',
   address: {

@@ -11,10 +11,17 @@ node_modules/
 .next/
 out/
 
-# env files
+# env files (접속 정보 — 절대 커밋 금지)
 .env
 .env.local
+.env.development
+.env.production
 .env.*.local
+
+# 실제 포트폴리오 데이터 (서버에서만 관리, 배포 시 덮어쓰기 방지)
+# ⚠️ 서버 장애 시 데이터 손실 위험 — 주기적으로 수동 백업 필요
+# 백업 방법: 서버에서 cat /var/www/dobae-seriously/data/portfolio.json 복사
+data/portfolio.json
 
 # 어드민으로 업로드된 이미지 (서버에서만 관리)
 public/portfolio/*/[0-9]*.jpg
@@ -30,3 +37,8 @@ Thumbs.db
 # logs
 *.log
 npm-debug.log*
+
+# 에디터
+.vscode/settings.json
+*.swp
+*.swo

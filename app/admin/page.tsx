@@ -59,7 +59,7 @@ export default function AdminPage() {
         setList(await r.json());
         setAuthed(true);
       } else {
-        setLoginErr('비밀번호가 틀렸습니다. 기본값: dobae1234');
+        setLoginErr('비밀번호가 틀렸습니다.');
       }
     } catch {
       setLoginErr('서버 연결 실패. npm run dev 가 실행 중인지 확인하세요.');
@@ -119,10 +119,10 @@ export default function AdminPage() {
     <div style={S.page}>
       <div style={S.card}>
         <h1 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>어드민 로그인</h1>
-        <p style={{ fontSize: 13, color: '#9ca3af', marginBottom: 20 }}>이반장 도배 관리자 전용</p>
+        <p style={{ fontSize: 13, color: '#9ca3af', marginBottom: 20 }}>도배에진심이반장 관리자 전용</p>
         <input
           type="password"
-          placeholder="비밀번호 (기본값: dobae1234)"
+          placeholder="비밀번호"
           value={pw}
           onChange={e => setPw(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && doLogin()}
@@ -144,7 +144,7 @@ export default function AdminPage() {
       <div style={{ background: '#fff', borderBottom: '1px solid #e5e7eb', padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div>
           <b style={{ fontSize: 16 }}>포트폴리오 관리</b>
-          <span style={{ fontSize: 12, color: '#9ca3af', marginLeft: 8 }}>이반장 도배 어드민</span>
+          <span style={{ fontSize: 12, color: '#9ca3af', marginLeft: 8 }}>도배에진심이반장 어드민</span>
         </div>
         <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
           <button onClick={openAdd} style={{ background: '#cc7009', color: '#fff', border: 'none', borderRadius: 8, padding: '8px 16px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>

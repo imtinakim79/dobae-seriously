@@ -6,6 +6,10 @@ const DATA_PATH = path.join(process.cwd(), 'data', 'portfolio.json');
 
 export function getPortfolios(): Portfolio[] {
   try {
+    if (!fs.existsSync(DATA_PATH)) {
+      fs.writeFileSync(DATA_PATH, '[]', 'utf-8');
+      return [];
+    }
     const raw = fs.readFileSync(DATA_PATH, 'utf-8');
     return JSON.parse(raw) as Portfolio[];
   } catch {

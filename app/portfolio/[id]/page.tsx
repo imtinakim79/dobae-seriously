@@ -15,7 +15,7 @@ export function generateMetadata({ params }: Props): Metadata {
   const portfolio = getPortfolios().find((p) => p.id === params.id);
   if (!portfolio) return {};
 
-  const title = `${generatePortfolioTitle(portfolio)} | 이반장 도배`;
+  const title = `${generatePortfolioTitle(portfolio)} | 도배에진심이반장`;
   const description = generatePortfolioDescription(portfolio);
   const mainImage = portfolio.images.find((img) => !img.before) ?? portfolio.images[0];
 

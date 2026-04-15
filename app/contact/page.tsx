@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: '견적 문의',
   description:
-    '이반장 도배 무료 견적 문의. 전화 또는 온라인으로 연락주시면 빠르게 답변드립니다. 서울·경기 전 지역 출장 가능.',
+    '도배의진심이반장 무료 견적 문의. 전화 또는 온라인으로 연락주시면 빠르게 답변드립니다. 서울·인천·경기 전 지역 출장 가능.',
   alternates: { canonical: 'https://dobae-seriously.com/contact' },
 };
 
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: '경기도도 시공 가능한가요?',
-    a: '서울·경기 전 지역 출장 가능합니다. 단, 거리에 따라 출장비가 발생할 수 있습니다.',
+    a: '서울·인천·경기 전 지역 출장 가능합니다. 단, 거리에 따라 출장비가 발생할 수 있습니다.',
   },
 ];
 
@@ -130,10 +130,10 @@ export default function ContactPage() {
               <h3 className="font-bold text-gray-900 mb-4">📍 시공 가능 지역</h3>
               <div className="grid grid-cols-2 gap-2 text-sm">
                 {[
-                  '마포구', '서대문구', '은평구', '강북구',
-                  '노원구', '도봉구', '성북구', '중랑구',
-                  '송파구', '강남구', '서초구', '강동구',
-                  '경기 전역',
+                  '강서구','영등포구','양천구','마포구',
+                  '은평구','서대문구','성북구','강북구',
+                  '노원구','도봉구','중랑구','인천 서구',
+                  '청라신도시','검단신도시','경기 전역',
                 ].map((area) => (
                   <span key={area} className="flex items-center gap-1.5 text-gray-600">
                     <span className="w-1.5 h-1.5 bg-brand-500 rounded-full flex-shrink-0" />

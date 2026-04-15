@@ -7,9 +7,9 @@ import { services } from '@/data/services';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: '이반장 도배 | 서울·경기 도배 전문',
+  title: '도배에진심이반장 | 서울·인천·경기 도배 전문',
   description:
-    '서울·경기 지역 아파트·빌라·원룸  도배 전문. 도배에 진심 직접 시공. 합리적인 가격, 깔끔한 마무리, 빠른 일정 보장. 무료 견적 문의.',
+    '서울·인천·경기 지역 아파트·빌라·원룸 도배 전문. 도배에 진심 직접 시공. 합리적인 가격, 깔끔한 마무리, 빠른 일정 보장. 무료 견적 문의.',
   alternates: { canonical: 'https://dobae-seriously.com' },
 };
 
@@ -55,10 +55,10 @@ export default function HomePage() {
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="max-w-2xl">
             <p className="inline-block bg-brand-500/30 text-brand-100 text-sm font-medium px-3 py-1 rounded-full mb-4">
-              서울·경기 도배 전문
+              서울·인천·경기 도배 전문
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              도배에진심 이반장이 직접 하는<br />
+              도배에진심 이반장<br />
               <span className="text-brand-300">믿을 수 있는 도배</span>
             </h1>
             <p className="text-lg md:text-xl text-brand-100 mb-8 leading-relaxed">

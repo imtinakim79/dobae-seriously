@@ -19,7 +19,7 @@ export default function Footer() {
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
               서울·경기 지역 도배 전문.<br />
-              20년 경력의 이반장이 직접 시공합니다.<br />
+              도배의진심 이반장이 직접 시공합니다.<br />
               합리적인 가격, 깔끔한 마무리 보장.
             </p>
           </div>
@@ -81,9 +81,22 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} 이반장 도배. All rights reserved.</p>
-          <p>사업자등록번호: 000-00-00000 {/* ← 실제 번호로 교체 */}</p>
+        {/* Business Info */}
+        <div className="border-t border-gray-700 mt-10 pt-6 text-xs text-gray-500 space-y-2">
+          <div className="flex flex-wrap gap-x-4 gap-y-1">
+            <span>상호: 도배의진심이반장</span>
+            <span>대표자: 이승훈</span>
+          </div>
+          <div>
+            <span>주소: 인천시 서구 서로3로 255 (우) 22860</span>
+          </div>
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 pt-2">
+            <p>© {new Date().getFullYear()} 도배의진심이반장. All rights reserved.</p>
+            <div className="flex gap-4">
+              <Link href="/terms" className="hover:text-gray-300 transition-colors">이용약관</Link>
+              <Link href="/privacy" className="hover:text-gray-300 transition-colors">개인정보처리방침</Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
