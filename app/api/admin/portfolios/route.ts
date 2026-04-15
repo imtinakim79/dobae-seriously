@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getPortfolios, savePortfolios } from '@/lib/portfolio-store';
 import type { Portfolio } from '@/data/portfolio';
 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD ?? 'dobae1234';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD ?? '';
 
 function checkAuth(req: NextRequest): boolean {
   return req.headers.get('x-admin-password') === ADMIN_PASSWORD;

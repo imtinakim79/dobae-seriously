@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD ?? 'dobae1234';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD ?? '';
 
 export async function POST(req: NextRequest) {
   if (req.headers.get('x-admin-password') !== ADMIN_PASSWORD) {
@@ -17,6 +17,10 @@ export async function POST(req: NextRequest) {
 
   if (!file || file.size === 0) {
     return NextResponse.json({ error: '파일 없음' }, { status: 400 });
+  }
+
+  if (file.size > 10 * 1024 * 1024) {
+    return NextResponse.json({ error: '파일 크기는 10MB 이하만 가능합니다' }, { status: 400 });
   }
 
   const ext = path.extname(file.name).toLowerCase() || '.jpg';
