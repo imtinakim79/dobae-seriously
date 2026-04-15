@@ -1,4 +1,4 @@
-name: Deploy to Cafe24 VPS
+name: Deploy to DigitalOcean
 
 on:
   push:
@@ -8,16 +8,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: SSH 접속 후 배포
+      - name: 서버에 SSH 접속 후 배포
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
+          host: 165.245.183.9
+          username: root
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            cd /var/www/dobae
+            cd /var/www/dobae-seriously
             git pull origin main
-            npm install --production=false
+            npm install
             npm run build
             pm2 restart dobae
-            echo "✅ 배포 완료"
+            echo "✅ 배포 완료: $(date)"
