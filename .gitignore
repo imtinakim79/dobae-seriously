@@ -1,0 +1,32 @@
+# Claude Code
+.claude/
+
+# build artifacts
+tsconfig.tsbuildinfo
+
+# dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# env files
+.env
+.env.local
+.env.*.local
+
+# 어드민으로 업로드된 이미지 (서버에서만 관리)
+public/portfolio/*/[0-9]*.jpg
+public/portfolio/*/[0-9]*.jpeg
+public/portfolio/*/[0-9]*.png
+public/portfolio/*/[0-9]*.webp
+public/portfolio/*/[0-9]*.gif
+
+# OS
+.DS_Store
+Thumbs.db
+
+# logs
+*.log
+npm-debug.log*
