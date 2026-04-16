@@ -50,26 +50,36 @@ export default function HomePage() {
       {/* ── HERO ── */}
       <section className="flex flex-col md:flex-row min-h-[460px]">
 
-        {/* 왼쪽: 로고 패널 (크림) */}
-        <div className="md:w-[42%] bg-[#f5f2ec] flex flex-col items-center justify-center px-8 py-14 gap-6">
-          {/* 로고 프레임 */}
-          <div className="border border-[#c8c0b0] bg-white px-10 py-8 shadow-md flex flex-col items-center">
-            <Image
-              src="/logo.png"
-              alt="도배에 진심 이반장"
-              width={280}
-              height={110}
-              className="w-52 md:w-64 h-auto mix-blend-multiply"
-              priority
-            />
-            <span className="text-[11px] tracking-[0.3em] text-[#b0a898] mt-4 uppercase">
-              도배에 진심 · 이반장
-            </span>
+        {/* 왼쪽: 로고 패널 — 풀 필 */}
+        <div className="md:w-[42%] bg-[#f5f2ec] relative flex flex-col items-center justify-center px-10 py-16 overflow-hidden">
+          {/* 배경 텍스처 장식 */}
+          <div className="absolute inset-0 opacity-[0.04]"
+            style={{ backgroundImage: 'repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%)', backgroundSize: '12px 12px' }} />
+
+          {/* 로고 — 풀 사이즈, 테두리 없음 */}
+          <Image
+            src="/logo.png"
+            alt="도배에 진심 이반장"
+            width={400}
+            height={160}
+            className="w-full max-w-[320px] md:max-w-[360px] h-auto mix-blend-multiply relative z-10"
+            priority
+          />
+
+          {/* 서브텍스트 — 디자인 강화 */}
+          <div className="relative z-10 mt-8 flex flex-col items-center gap-2">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-10 bg-[#b0a898]" />
+              <span className="text-sm font-semibold tracking-[0.25em] text-[#6b6460] uppercase">Seoul · Incheon · Gyeonggi</span>
+              <div className="h-px w-10 bg-[#b0a898]" />
+            </div>
+            <p className="text-base font-bold text-[#3a3330] tracking-[0.15em]">도배 전문 · 직접 시공</p>
           </div>
+
           {/* 서비스 태그 */}
-          <div className="flex flex-wrap gap-2 justify-center">
+          <div className="relative z-10 flex flex-wrap gap-2 justify-center mt-6">
             {['#아파트도배', '#원룸도배', '#빌라도배', '#고시원도배', '#실크벽지'].map((tag) => (
-              <span key={tag} className="text-[11px] text-[#9c9488] bg-[#ede9e2] px-3 py-1 rounded-full">
+              <span key={tag} className="text-xs text-[#9c9488] bg-[#e8e3db] px-3 py-1 rounded-full font-medium">
                 {tag}
               </span>
             ))}
