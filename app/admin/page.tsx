@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 /* ── types ── */
 interface PImage { src: string; alt: string; before: boolean; }
@@ -32,6 +32,24 @@ export default function AdminPage() {
   const [list, setList] = useState<Portfolio[]>([]);
   const [savedPw, setSavedPw] = useState('');
   const [toast, setToast] = useState('');
+
+  // 저장된 비밀번호로 자동 로그인 (30일 만료)
+  useEffect(() => {
+    const stored = localStorage.getItem('admin_pw');
+    const expiry = localStorage.getItem('admin_pw_expiry');
+    if (!stored || !expiry) return;
+    if (Date.now() > Number(expiry)) {
+      localStorage.removeItem('admin_pw');
+      localStorage.removeItem('admin_pw_expiry');
+      return;
+    }
+    fetch('/api/admin/portfolios', { headers: { 'x-admin-password': stored } })
+      .then(async r => {
+        if (r.ok) { setSavedPw(stored); setList(await r.json()); setAuthed(true); }
+        else { localStorage.removeItem('admin_pw'); localStorage.removeItem('admin_pw_expiry'); }
+      })
+      .catch(() => { localStorage.removeItem('admin_pw'); localStorage.removeItem('admin_pw_expiry'); });
+  }, []);
   const [modal, setModal] = useState(false);
   const [editing, setEditing] = useState<Portfolio | null>(null);
 
@@ -56,6 +74,9 @@ export default function AdminPage() {
     try {
       const r = await fetch('/api/admin/portfolios', { headers: { 'x-admin-password': pw } });
       if (r.ok) {
+        const expiry = Date.now() + 60 * 60 * 1000; // 1시간
+        localStorage.setItem('admin_pw', pw);
+        localStorage.setItem('admin_pw_expiry', String(expiry));
         setSavedPw(pw);
         setList(await r.json());
         setAuthed(true);
@@ -151,7 +172,7 @@ export default function AdminPage() {
           <button onClick={openAdd} style={{ background: '#cc7009', color: '#fff', border: 'none', borderRadius: 8, padding: '8px 16px', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>
             + 새 시공 추가
           </button>
-          <button onClick={() => { setAuthed(false); setSavedPw(''); setPw(''); }} style={{ background: 'none', border: 'none', color: '#9ca3af', cursor: 'pointer', fontSize: 13 }}>
+          <button onClick={() => { localStorage.removeItem('admin_pw'); localStorage.removeItem('admin_pw_expiry'); setAuthed(false); setSavedPw(''); setPw(''); }} style={{ background: 'none', border: 'none', color: '#9ca3af', cursor: 'pointer', fontSize: 13 }}>
             로그아웃
           </button>
         </div>
