@@ -15,17 +15,17 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
             <Image
               src="/logo.png"
               alt="도배에 진심 이반장"
-              width={160}
-              height={60}
-              className="h-12 w-auto object-contain"
+              width={220}
+              height={80}
+              className="h-16 w-auto object-contain"
               priority
             />
           </Link>

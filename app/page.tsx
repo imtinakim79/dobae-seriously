@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import PortfolioCard from '@/components/PortfolioCard';
 import { getPortfolios } from '@/lib/portfolio-store';
 import { services } from '@/data/services';
@@ -47,43 +48,62 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2" />
-        </div>
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="max-w-2xl">
-            <p className="inline-block bg-brand-500/30 text-brand-100 text-sm font-medium px-3 py-1 rounded-full mb-4">
-              서울·인천·경기 도배 전문
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              도배에진심 이반장<br />
-              <span className="text-brand-300">믿을 수 있는 도배</span>
-            </h1>
-            <p className="text-lg md:text-xl text-brand-100 mb-8 leading-relaxed">
-              도배의진심 이반장이 처음부터 끝까지 직접 시공합니다.<br />
-              합리적인 가격, 깔끔한 마무리, 빠른 일정 — 세 가지 모두 약속드립니다.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/contact" className="btn-primary bg-white text-brand-800 hover:bg-brand-50 shadow-xl">
-                📞 무료 견적 문의
-              </Link>
-              <Link href="/portfolio" className="btn-outline border-white text-white hover:bg-white hover:text-brand-800">
-                시공 갤러리 보기
-              </Link>
-            </div>
+      <section className="relative bg-white overflow-hidden">
+        {/* 상단 포인트 라인 */}
+        <div className="h-1 bg-gradient-to-r from-brand-700 via-brand-500 to-brand-700" />
+
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
+          {/* 뱃지 */}
+          <p className="inline-block bg-brand-50 text-brand-700 text-sm font-medium px-4 py-1.5 rounded-full mb-10 border border-brand-200">
+            서울 · 인천 · 경기 도배 전문
+          </p>
+
+          {/* 로고 크게 */}
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/logo.png"
+              alt="도배에 진심 이반장"
+              width={480}
+              height={180}
+              className="w-64 md:w-80 lg:w-[420px] h-auto object-contain drop-shadow-sm"
+              priority
+            />
+          </div>
+
+          {/* 구분선 */}
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px bg-gray-200 w-16" />
+            <span className="text-gray-400 text-sm tracking-widest">장인 직접 시공</span>
+            <div className="h-px bg-gray-200 w-16" />
+          </div>
+
+          {/* 서브 카피 */}
+          <p className="text-lg md:text-xl text-gray-600 mb-2 leading-relaxed">
+            처음부터 끝까지 이반장이 직접 시공합니다
+          </p>
+          <p className="text-gray-400 text-sm mb-10">
+            합리적인 가격 &nbsp;·&nbsp; 깔끔한 마무리 &nbsp;·&nbsp; 빠른 일정
+          </p>
+
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href="/contact" className="btn-primary text-base px-8 py-3.5 shadow-lg">
+              📞 무료 견적 문의
+            </Link>
+            <Link href="/portfolio" className="btn-outline text-base px-8 py-3.5">
+              시공 갤러리 보기
+            </Link>
           </div>
         </div>
 
-        {/* Stats bar */}
-        <div className="relative bg-brand-950/40 border-t border-white/10">
+        {/* Stats bar — 먹색 */}
+        <div className="bg-stone-900 border-t border-stone-800">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {stats.map((s) => (
                 <div key={s.label} className="text-center">
                   <p className="text-2xl md:text-3xl font-bold text-white">{s.value}</p>
-                  <p className="text-sm text-brand-200">{s.label}</p>
+                  <p className="text-sm text-stone-400">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -244,10 +264,10 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16 bg-brand-700 text-white text-center">
+      <section className="py-16 bg-stone-900 text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">지금 바로 무료 견적 받으세요</h2>
-          <p className="text-brand-100 mb-8">
+          <p className="text-stone-400 mb-8">
             전화 한 통으로 현장 방문 견적을 무료로 받아보실 수 있습니다.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
