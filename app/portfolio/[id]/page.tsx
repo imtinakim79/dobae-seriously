@@ -93,6 +93,7 @@ export default function PortfolioDetailPage({ params }: Props) {
               alt={mainImage.alt}
               fill
               priority
+              unoptimized
               quality={85}
               sizes="(max-width: 768px) 100vw, 896px"
               className="object-cover"
@@ -108,6 +109,7 @@ export default function PortfolioDetailPage({ params }: Props) {
                     src={img.src}
                     alt={img.alt}
                     fill
+                    unoptimized
                     quality={85}
                     sizes="(max-width: 640px) 50vw, 33vw"
                     className="object-cover"
@@ -128,6 +130,7 @@ export default function PortfolioDetailPage({ params }: Props) {
                       src={img.src}
                       alt={img.alt}
                       fill
+                      unoptimized
                       quality={80}
                       sizes="(max-width: 640px) 50vw, 33vw"
                       className="object-cover"
