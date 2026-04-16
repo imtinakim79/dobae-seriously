@@ -48,68 +48,93 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative bg-white overflow-hidden">
-        {/* 상단 포인트 라인 */}
-        <div className="h-1 bg-gradient-to-r from-brand-700 via-brand-500 to-brand-700" />
+      <section className="flex flex-col md:flex-row min-h-[460px]">
 
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
-          {/* 뱃지 */}
-          <p className="inline-block bg-brand-50 text-brand-700 text-sm font-medium px-4 py-1.5 rounded-full mb-10 border border-brand-200">
-            서울 · 인천 · 경기 도배 전문
-          </p>
-
-          {/* 로고 크게 */}
-          <div className="flex justify-center mb-8">
+        {/* 왼쪽: 로고 패널 (크림) */}
+        <div className="md:w-[42%] bg-[#f5f2ec] flex flex-col items-center justify-center px-8 py-14 gap-6">
+          {/* 로고 프레임 */}
+          <div className="border border-[#c8c0b0] bg-white px-10 py-8 shadow-md flex flex-col items-center">
             <Image
               src="/logo.png"
               alt="도배에 진심 이반장"
-              width={480}
-              height={180}
-              className="w-64 md:w-80 lg:w-[420px] h-auto object-contain drop-shadow-sm"
+              width={280}
+              height={110}
+              className="w-52 md:w-64 h-auto mix-blend-multiply"
               priority
             />
+            <span className="text-[11px] tracking-[0.3em] text-[#b0a898] mt-4 uppercase">
+              도배에 진심 · 이반장
+            </span>
           </div>
-
-          {/* 구분선 */}
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="h-px bg-gray-200 w-16" />
-            <span className="text-gray-400 text-sm tracking-widest">장인 직접 시공</span>
-            <div className="h-px bg-gray-200 w-16" />
-          </div>
-
-          {/* 서브 카피 */}
-          <p className="text-lg md:text-xl text-gray-600 mb-2 leading-relaxed">
-            처음부터 끝까지 이반장이 직접 시공합니다
-          </p>
-          <p className="text-gray-400 text-sm mb-10">
-            합리적인 가격 &nbsp;·&nbsp; 깔끔한 마무리 &nbsp;·&nbsp; 빠른 일정
-          </p>
-
-          {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/contact" className="btn-primary text-base px-8 py-3.5 shadow-lg">
-              📞 무료 견적 문의
-            </Link>
-            <Link href="/portfolio" className="btn-outline text-base px-8 py-3.5">
-              시공 갤러리 보기
-            </Link>
+          {/* 서비스 태그 */}
+          <div className="flex flex-wrap gap-2 justify-center">
+            {['#아파트도배', '#원룸도배', '#빌라도배', '#고시원도배', '#실크벽지'].map((tag) => (
+              <span key={tag} className="text-[11px] text-[#9c9488] bg-[#ede9e2] px-3 py-1 rounded-full">
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
 
-        {/* Stats bar — 먹색 */}
-        <div className="bg-stone-900 border-t border-stone-800">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {stats.map((s) => (
-                <div key={s.label} className="text-center">
-                  <p className="text-2xl md:text-3xl font-bold text-white">{s.value}</p>
-                  <p className="text-sm text-stone-400">{s.label}</p>
-                </div>
-              ))}
+        {/* 오른쪽: 다크 정보 패널 */}
+        <div className="flex-1 bg-[#252320] flex flex-col justify-center px-10 md:px-14 py-14">
+          {/* 지역 해시태그 */}
+          <div className="flex flex-wrap gap-3 mb-7">
+            {['#서울도배', '#인천도배', '#경기도배', '#검단도배', '#김포도배'].map((tag) => (
+              <span key={tag} className="text-xs text-[#8a9a9b]">{tag}</span>
+            ))}
+          </div>
+
+          {/* 전화번호 */}
+          <a
+            href="tel:010-5388-4628"
+            className="text-4xl md:text-5xl font-bold text-white tracking-wide leading-none mb-2 hover:text-brand-400 transition-colors"
+          >
+            010-5388-4628
+          </a>
+          <p className="text-xs text-[#6b7b7c] tracking-widest mb-7">무료 견적 · 당일 상담 가능</p>
+
+          {/* 구분선 */}
+          <div className="h-px bg-[#3a3632] mb-6" />
+
+          {/* SNS */}
+          <div className="flex flex-col gap-3 mb-8">
+            <div className="flex items-center gap-3">
+              <span className="w-7 h-7 rounded-md bg-[#03c75a] flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0">N</span>
+              <span className="text-sm text-[#c8cece]">blog.naver.com/dobae_seriously</span>
             </div>
+            <div className="flex items-center gap-3">
+              <span className="w-7 h-7 rounded-md bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 flex items-center justify-center text-white text-xs flex-shrink-0">✦</span>
+              <span className="text-sm text-[#c8cece]">@dobae_seriously</span>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link href="/contact" className="btn-primary inline-flex items-center gap-2 shadow-lg">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+              지금 바로 전화하기
+            </Link>
+            <Link href="/portfolio" className="border border-[#4a4642] text-[#c8cece] hover:border-brand-600 font-semibold px-6 py-3 rounded-lg text-sm transition-colors inline-flex items-center">
+              시공 갤러리 보기 →
+            </Link>
           </div>
         </div>
       </section>
+
+      {/* Stats bar */}
+      <div className="bg-brand-800">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {stats.map((s) => (
+              <div key={s.label} className="text-center">
+                <p className="text-xl md:text-2xl font-bold text-white">{s.value}</p>
+                <p className="text-xs text-brand-300 mt-0.5">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* ── SERVICES ── */}
       <section className="py-16 md:py-24 bg-gray-50">
@@ -264,17 +289,18 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16 bg-stone-900 text-white text-center">
+      <section className="py-16 bg-[#252320] text-white text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">지금 바로 무료 견적 받으세요</h2>
-          <p className="text-stone-400 mb-8">
+          <p className="text-[#8a9a9b] mb-8">
             전화 한 통으로 현장 방문 견적을 무료로 받아보실 수 있습니다.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:010-5388-4628" className="btn-primary bg-white text-brand-800 hover:bg-brand-50 text-lg px-8 py-4">
-              📞 010-5388-4628
+            <a href="tel:010-5388-4628" className="btn-primary text-lg px-8 py-4 inline-flex items-center gap-2">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+              010-5388-4628
             </a>
-            <Link href="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-brand-800 text-lg px-8 py-4">
+            <Link href="/contact" className="border border-[#4a4642] text-[#c8cece] hover:border-brand-600 font-semibold px-8 py-4 rounded-lg text-lg transition-colors inline-flex items-center justify-center">
               온라인 문의
             </Link>
           </div>
