@@ -14,12 +14,6 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://dobae-seriously.com' },
 };
 
-const stats = [
-  { label: '전문성', value: '도배자격증' },
-  { label: '재거래율', value: '98%' },
-  { label: 'A/S', value: '100%' },
-  { label: '당일 견적', value: '무료' },
-];
 
 const reviews = [
   {
@@ -52,50 +46,19 @@ export default function HomePage() {
 
         {/* 왼쪽: 배경 이미지 패널 */}
         <div className="md:w-[58%] relative overflow-hidden min-h-[360px] md:min-h-0">
-          {/* 배경 이미지 */}
           <Image
-            src="/hero.jpg.png"
+            src="/hero.png"
             alt="도배에진심 이반장 시공 사례"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
           />
-          {/* 그라디언트 오버레이 — 왼쪽/아래 어둡게 */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
-
-          {/* 콘텐츠 */}
-          <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12">
-            {/* 상단: 로고 */}
-            <div className="bg-white/90 backdrop-blur-sm inline-flex self-start px-5 py-3">
-              <Image
-                src="/logo.png"
-                alt="도배에 진심 이반장"
-                width={220}
-                height={85}
-                className="h-14 w-auto mix-blend-multiply"
-              />
-            </div>
-
-            {/* 하단: 태그라인 */}
-            <div>
-              <p className="text-white/80 text-sm tracking-widest mb-2 uppercase">Seoul · Incheon · Gyeonggi</p>
-              <h1 className="text-white text-2xl md:text-3xl font-bold leading-snug mb-4 drop-shadow">
-                합리적인 가격으로<br/>깔끔하게 시공합니다
-              </h1>
-              <div className="flex flex-wrap gap-2">
-                {['#아파트도배', '#원룸도배', '#빌라도배', '#실크벽지'].map((tag) => (
-                  <span key={tag} className="text-xs text-white/70 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+          {/* 하단 페이드 — 통계바와 자연스럽게 연결 */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#155E58]/60 via-transparent to-transparent" />
         </div>
 
-        {/* 오른쪽: 다크 정보 패널 */}
-        <div className="flex-1 bg-[#1e1c1a] flex flex-col justify-center px-10 md:px-12 py-14">
+        {/* 오른쪽: 정보 패널 */}
+        <div className="flex-1 bg-[#F1F2ED] flex flex-col justify-center px-10 md:px-12 py-14">
           {/* 지역 해시태그 */}
           <div className="flex flex-wrap gap-3 mb-6">
             {['#서울도배', '#인천도배', '#경기도배', '#검단도배', '#김포도배'].map((tag) => (
@@ -106,25 +69,39 @@ export default function HomePage() {
           {/* 전화번호 */}
           <a
             href="tel:010-5388-4628"
-            className="text-3xl md:text-4xl font-bold text-white tracking-wide leading-none mb-1 hover:text-brand-400 transition-colors"
+            className="text-3xl md:text-4xl font-bold text-gray-900 tracking-wide leading-none mb-1 hover:text-brand-700 transition-colors"
           >
             010-5388-4628
           </a>
-          <p className="text-xs text-[#6b7b7c] tracking-widest mb-6">무료 견적 · 당일 상담 가능</p>
+          <p className="text-xs text-gray-400 tracking-widest mb-6">무료 견적 · 당일 상담 가능</p>
 
           {/* 구분선 */}
-          <div className="h-px bg-[#3a3632] mb-5" />
+          <div className="h-px bg-gray-200 mb-5" />
 
           {/* SNS */}
           <div className="flex flex-col gap-3 mb-7">
-            <div className="flex items-center gap-3">
+            <a
+              href="https://blog.naver.com/dobae_seriously"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 group"
+            >
               <span className="w-7 h-7 rounded-md bg-[#03c75a] flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0">N</span>
-              <span className="text-sm text-[#c8cece]">blog.naver.com/dobae_seriously</span>
-            </div>
-            <div className="flex items-center gap-3">
+              <span className="text-sm text-gray-500 group-hover:text-[#03c75a] transition-colors underline-offset-2 group-hover:underline">
+                blog.naver.com/dobae_seriously
+              </span>
+            </a>
+            <a
+              href="https://www.instagram.com/dobae_seriously"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 group"
+            >
               <span className="w-7 h-7 rounded-md bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 flex items-center justify-center text-white text-xs flex-shrink-0">✦</span>
-              <span className="text-sm text-[#c8cece]">@dobae_seriously</span>
-            </div>
+              <span className="text-sm text-gray-500 group-hover:text-pink-500 transition-colors underline-offset-2 group-hover:underline">
+                @dobae_seriously
+              </span>
+            </a>
           </div>
 
           {/* CTA */}
@@ -133,7 +110,7 @@ export default function HomePage() {
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
               지금 바로 전화하기
             </a>
-            <Link href="/portfolio" className="border border-[#4a4642] text-[#c8cece] hover:border-brand-600 font-semibold px-6 py-3.5 rounded-lg text-sm transition-colors inline-flex items-center justify-center">
+            <Link href="/portfolio" className="border border-gray-300 text-gray-600 hover:border-brand-600 hover:text-brand-700 font-semibold px-6 py-3.5 rounded-lg text-sm transition-colors inline-flex items-center justify-center">
               시공 갤러리 보기 →
             </Link>
           </div>
@@ -141,15 +118,49 @@ export default function HomePage() {
       </section>
 
       {/* Stats bar */}
-      <div className="bg-brand-800">
+      <div className="bg-[#155E58]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {stats.map((s) => (
-              <div key={s.label} className="text-center">
-                <p className="text-xl md:text-2xl font-bold text-white">{s.value}</p>
-                <p className="text-xs text-brand-300 mt-0.5">{s.label}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+
+            {/* 국가공인 도배자격증 */}
+            <div className="flex items-center justify-center gap-3 px-4 py-2">
+              <svg className="w-8 h-8 text-white flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                <rect x="4" y="3" width="16" height="18" rx="2" strokeLinecap="round"/>
+                <path d="M8 7h8M8 11h8M8 15h5" strokeLinecap="round"/>
+                <circle cx="17" cy="17" r="3" fill="currentColor" stroke="none" opacity="0.3"/>
+                <path d="M15.5 17l1 1 1.5-1.5" strokeLinecap="round" strokeLinejoin="round" stroke="white" strokeWidth="1.2"/>
+              </svg>
+              <span className="text-white text-sm font-semibold leading-tight">국가공인<br/>도배자격증</span>
+            </div>
+
+            {/* 98% 재의뢰율 */}
+            <div className="flex items-center justify-center gap-3 px-4 py-2">
+              <svg className="w-8 h-8 text-white flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                <path d="M4 12a8 8 0 018-8" strokeLinecap="round"/>
+                <path d="M20 12a8 8 0 01-8 8" strokeLinecap="round"/>
+                <path d="M3 9l1 3 3-1M21 15l-1-3-3 1" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span className="text-white text-sm font-semibold leading-tight">98%<br/>재의뢰율</span>
+            </div>
+
+            {/* 100% 책임 A/S */}
+            <div className="flex items-center justify-center gap-3 px-4 py-2">
+              <svg className="w-8 h-8 text-white flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                <path d="M12 3l8 3.5v5c0 4.5-3.5 8-8 9.5C7.5 19.5 4 16 4 11.5v-5L12 3z" strokeLinejoin="round"/>
+                <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span className="text-white text-sm font-semibold leading-tight">100%<br/>책임 A/S</span>
+            </div>
+
+            {/* 당일 현장 견적 */}
+            <div className="flex items-center justify-center gap-3 px-4 py-2">
+              <svg className="w-8 h-8 text-white flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M13 7l1.5 2.5" strokeLinecap="round"/>
+              </svg>
+              <span className="text-white text-sm font-semibold leading-tight">당일<br/>현장 견적</span>
+            </div>
+
           </div>
         </div>
       </div>
@@ -307,10 +318,10 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16 bg-[#252320] text-white text-center">
+      <section className="py-16 bg-[#F1F2ED] text-gray-900 text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">지금 바로 무료 견적 받으세요</h2>
-          <p className="text-[#8a9a9b] mb-8">
+          <p className="text-gray-500 mb-8">
             전화 한 통으로 현장 방문 견적을 무료로 받아보실 수 있습니다.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -318,7 +329,7 @@ export default function HomePage() {
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
               010-5388-4628
             </a>
-            <Link href="/contact" className="border border-[#4a4642] text-[#c8cece] hover:border-brand-600 font-semibold px-8 py-4 rounded-lg text-lg transition-colors inline-flex items-center justify-center">
+            <Link href="/contact" className="border border-gray-300 text-gray-600 hover:border-brand-600 hover:text-brand-700 font-semibold px-8 py-4 rounded-lg text-lg transition-colors inline-flex items-center justify-center">
               온라인 문의
             </Link>
           </div>
