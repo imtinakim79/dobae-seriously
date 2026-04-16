@@ -48,48 +48,56 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="flex flex-col md:flex-row min-h-[460px]">
+      <section className="flex flex-col md:flex-row min-h-[520px]">
 
-        {/* 왼쪽: 로고 패널 — 풀 필 */}
-        <div className="md:w-[42%] bg-[#f5f2ec] relative flex flex-col items-center justify-center px-10 py-16 overflow-hidden">
-          {/* 배경 텍스처 장식 */}
-          <div className="absolute inset-0 opacity-[0.04]"
-            style={{ backgroundImage: 'repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%)', backgroundSize: '12px 12px' }} />
-
-          {/* 로고 — 풀 사이즈, 테두리 없음 */}
+        {/* 왼쪽: 배경 이미지 패널 */}
+        <div className="md:w-[58%] relative overflow-hidden min-h-[360px] md:min-h-0">
+          {/* 배경 이미지 */}
           <Image
-            src="/logo.png"
-            alt="도배에 진심 이반장"
-            width={400}
-            height={160}
-            className="w-full max-w-[320px] md:max-w-[360px] h-auto mix-blend-multiply relative z-10"
+            src="/hero.jpg.png"
+            alt="도배에진심 이반장 시공 사례"
+            fill
+            className="object-cover"
             priority
           />
+          {/* 그라디언트 오버레이 — 왼쪽/아래 어둡게 */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
 
-          {/* 서브텍스트 — 디자인 강화 */}
-          <div className="relative z-10 mt-8 flex flex-col items-center gap-2">
-            <div className="flex items-center gap-3">
-              <div className="h-px w-10 bg-[#b0a898]" />
-              <span className="text-sm font-semibold tracking-[0.25em] text-[#6b6460] uppercase">Seoul · Incheon · Gyeonggi</span>
-              <div className="h-px w-10 bg-[#b0a898]" />
+          {/* 콘텐츠 */}
+          <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12">
+            {/* 상단: 로고 */}
+            <div className="bg-white/90 backdrop-blur-sm inline-flex self-start px-5 py-3">
+              <Image
+                src="/logo.png"
+                alt="도배에 진심 이반장"
+                width={220}
+                height={85}
+                className="h-14 w-auto mix-blend-multiply"
+              />
             </div>
-            <p className="text-base font-bold text-[#3a3330] tracking-[0.15em]">도배 전문 · 직접 시공</p>
-          </div>
 
-          {/* 서비스 태그 */}
-          <div className="relative z-10 flex flex-wrap gap-2 justify-center mt-6">
-            {['#아파트도배', '#원룸도배', '#빌라도배', '#고시원도배', '#실크벽지'].map((tag) => (
-              <span key={tag} className="text-xs text-[#9c9488] bg-[#e8e3db] px-3 py-1 rounded-full font-medium">
-                {tag}
-              </span>
-            ))}
+            {/* 하단: 태그라인 */}
+            <div>
+              <p className="text-white/80 text-sm tracking-widest mb-2 uppercase">Seoul · Incheon · Gyeonggi</p>
+              <h1 className="text-white text-2xl md:text-3xl font-bold leading-snug mb-4 drop-shadow">
+                합리적인 가격으로<br/>깔끔하게 시공합니다
+              </h1>
+              <div className="flex flex-wrap gap-2">
+                {['#아파트도배', '#원룸도배', '#빌라도배', '#실크벽지'].map((tag) => (
+                  <span key={tag} className="text-xs text-white/70 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
         {/* 오른쪽: 다크 정보 패널 */}
-        <div className="flex-1 bg-[#252320] flex flex-col justify-center px-10 md:px-14 py-14">
+        <div className="flex-1 bg-[#1e1c1a] flex flex-col justify-center px-10 md:px-12 py-14">
           {/* 지역 해시태그 */}
-          <div className="flex flex-wrap gap-3 mb-7">
+          <div className="flex flex-wrap gap-3 mb-6">
             {['#서울도배', '#인천도배', '#경기도배', '#검단도배', '#김포도배'].map((tag) => (
               <span key={tag} className="text-xs text-[#8a9a9b]">{tag}</span>
             ))}
@@ -98,17 +106,17 @@ export default function HomePage() {
           {/* 전화번호 */}
           <a
             href="tel:010-5388-4628"
-            className="text-4xl md:text-5xl font-bold text-white tracking-wide leading-none mb-2 hover:text-brand-400 transition-colors"
+            className="text-3xl md:text-4xl font-bold text-white tracking-wide leading-none mb-1 hover:text-brand-400 transition-colors"
           >
             010-5388-4628
           </a>
-          <p className="text-xs text-[#6b7b7c] tracking-widest mb-7">무료 견적 · 당일 상담 가능</p>
+          <p className="text-xs text-[#6b7b7c] tracking-widest mb-6">무료 견적 · 당일 상담 가능</p>
 
           {/* 구분선 */}
-          <div className="h-px bg-[#3a3632] mb-6" />
+          <div className="h-px bg-[#3a3632] mb-5" />
 
           {/* SNS */}
-          <div className="flex flex-col gap-3 mb-8">
+          <div className="flex flex-col gap-3 mb-7">
             <div className="flex items-center gap-3">
               <span className="w-7 h-7 rounded-md bg-[#03c75a] flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0">N</span>
               <span className="text-sm text-[#c8cece]">blog.naver.com/dobae_seriously</span>
@@ -120,12 +128,12 @@ export default function HomePage() {
           </div>
 
           {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link href="/contact" className="btn-primary inline-flex items-center gap-2 shadow-lg">
+          <div className="flex flex-col gap-3">
+            <a href="tel:010-5388-4628" className="btn-primary inline-flex items-center justify-center gap-2 shadow-lg py-3.5">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
               지금 바로 전화하기
-            </Link>
-            <Link href="/portfolio" className="border border-[#4a4642] text-[#c8cece] hover:border-brand-600 font-semibold px-6 py-3 rounded-lg text-sm transition-colors inline-flex items-center">
+            </a>
+            <Link href="/portfolio" className="border border-[#4a4642] text-[#c8cece] hover:border-brand-600 font-semibold px-6 py-3.5 rounded-lg text-sm transition-colors inline-flex items-center justify-center">
               시공 갤러리 보기 →
             </Link>
           </div>
