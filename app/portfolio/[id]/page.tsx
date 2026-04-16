@@ -168,6 +168,20 @@ export default function PortfolioDetailPage({ params }: Props) {
             <p className="text-gray-600 text-sm mt-5 leading-relaxed">{portfolio.description}</p>
           </div>
 
+          {/* 블로그 링크 */}
+          {portfolio.blogUrl && (
+            <div className="mb-6">
+              <a
+                href={portfolio.blogUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full border border-green-500 text-green-700 bg-green-50 rounded-xl py-3 text-sm font-medium hover:bg-green-100 transition-colors"
+              >
+                네이버 블로그에서 자세히 보기 →
+              </a>
+            </div>
+          )}
+
           {/* CTA */}
           <div className="bg-brand-50 rounded-xl p-6 text-center border border-brand-100">
             <h3 className="font-bold text-gray-900 mb-2">이 시공이 마음에 드셨나요?</h3>

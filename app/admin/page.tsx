@@ -7,7 +7,7 @@ interface PImage { src: string; alt: string; before: boolean; }
 interface Portfolio {
   id: string; region: string; apartment: string;
   roomType: string; wallpaperType: string; date: string;
-  tags: string[]; description: string; images: PImage[];
+  tags: string[]; description: string; blogUrl?: string; images: PImage[];
 }
 
 const S = {
@@ -56,7 +56,7 @@ export default function AdminPage() {
   const blank = (): Portfolio => ({
     id: '', region: '', apartment: '', roomType: '전체',
     wallpaperType: '실크벽지', date: new Date().toISOString().slice(0, 7),
-    tags: [], description: '', images: [{ src: '', alt: '', before: false }],
+    tags: [], description: '', blogUrl: '', images: [{ src: '', alt: '', before: false }],
   });
   const [form, setForm] = useState<Portfolio>(blank);
   const [tagsStr, setTagsStr] = useState('');
@@ -265,6 +265,11 @@ export default function AdminPage() {
                 <span style={{ fontSize: 12, color: '#6b7280', display: 'block', marginBottom: 4 }}>시공 설명</span>
                 <textarea style={{ ...S.input, height: 72, resize: 'vertical' as const }} placeholder="시공 내용 요약..."
                   value={form.description} onChange={e => setForm(p => ({ ...p, description: e.target.value }))} />
+              </label>
+              <label style={{ display: 'block' }}>
+                <span style={{ fontSize: 12, color: '#6b7280', display: 'block', marginBottom: 4 }}>블로그 링크 (선택)</span>
+                <input style={S.input} placeholder="https://blog.naver.com/dobae_seriously/..." value={form.blogUrl ?? ''}
+                  onChange={e => setForm(p => ({ ...p, blogUrl: e.target.value }))} />
               </label>
 
               {/* 이미지 */}

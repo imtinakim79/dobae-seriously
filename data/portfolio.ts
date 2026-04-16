@@ -14,6 +14,7 @@ export interface Portfolio {
   date: string;         // YYYY-MM
   tags: string[];
   description: string;
+  blogUrl?: string;
   images: PortfolioImage[];
 }
 
