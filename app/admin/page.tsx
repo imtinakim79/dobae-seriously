@@ -19,7 +19,8 @@ const S = {
 };
 
 function makeId(region: string, apt: string) {
-  return `${region}-${apt}`.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').slice(0, 60);
+  const raw = `${region}-${apt}`.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+  return raw || `portfolio-${Date.now()}`;
 }
 
 export default function AdminPage() {

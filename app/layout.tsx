@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     template: '%s | 도배에 진심 이반장',
   },
   description:
-    '서울·인천·경기 지역 아파트·빌라 도배 전문. 20년 경력의 이반장이 직접 시공합니다. 합리적인 가격, 깔끔한 마무리, 빠른 일정 보장.',
-  keywords: ['도배', '도배 전문', '아파트 도배', '서울 도배', '경기 도배', '도배에 진심 이반장', '실크벽지', '합지도배'],
+    '서울·인천·경기 지역 아파트·빌라·원룸·고시원 도배 전문.도배의진심 이반장이 직접 시공합니다. 합리적인 가격, 깔끔한 마무리, 빠른 일정 보장.',
+  keywords: ['원룸도배', '고시원도배', '아파트 도배', '김포 도배', '검단 도배', '인천 도배','도배에 진심 이반장', '실크벽지', '합지도배'],
   authors: [{ name: '도배에 진심 이반장' }],
   creator: '도배에 진심 이반장',
   openGraph: {
@@ -28,20 +28,20 @@ export const metadata: Metadata = {
     url: 'https://dobae-seriously.com',
     siteName: '도배에 진심 이반장',
     title: '도배에 진심 이반장 | 서울·인천·경기 도배 전문',
-    description: '서울·인천·경기 지역 아파트·빌라 도배 전문. 20년 경력의 이반장이 직접 시공합니다.',
+    description: '서울·인천·경기 지역 아파트·빌라·원룸·고시원 도배 전문.도배의진심 이반장이 직접 시공합니다.',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: '도배에 진심 이반장 — 서울·인천·경기 도배 전문업체' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: '도배에 진심 이반장 | 서울·인천·경기 도배 전문',
-    description: '서울·인천·경기 지역 아파트·빌라 도배 전문. 20년 경력의 이반장이 직접 시공합니다.',
+    description: '서울·인천·경기 지역 아파트·빌라 도배 전문. 도배의진심 이반장이 직접 시공합니다.',
     images: ['/og-image.jpg'],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   verification: {
-    google: 'YOUR_GOOGLE_SEARCH_CONSOLE_TOKEN',  // https://search.google.com/search-console 에서 발급
+    google: 'l8AMbIqh8xR1kVoy-DpwYKvJM4-8RDC4xeG48OglbXo',  // https://search.google.com/search-console 에서 발급
     other: {
-      'naver-site-verification': 'YOUR_NAVER_TOKEN',  // https://searchadvisor.naver.com 에서 발급
+      'naver-site-verification': '141496b20d7a17227a06a52c1e7e6c3ee558db26',  // https://searchadvisor.naver.com 에서 발급
     },
   },
 };
@@ -59,9 +59,9 @@ const localBusinessSchema = {
   telephone: '010-5388-4628',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '',           // ← 실제 주소로 교체
-    addressLocality: '서울특별시',
-    addressRegion: '서울',
+    streetAddress: '서구 서로 3로 255',           // ← 실제 주소로 교체
+    addressLocality: '인천광역시',
+    addressRegion: '검단신도시',
     postalCode: '00000',
     addressCountry: 'KR',
   },
@@ -71,8 +71,8 @@ const localBusinessSchema = {
     longitude: 126.9780,
   },
   areaServed: [
-    { '@type': 'City', name: '서울특별시' },
-    { '@type': 'AdministrativeArea', name: '경기도' },
+    { '@type': 'City', name: '인천광역시' },
+    { '@type': 'AdministrativeArea', name: '검단신도시' },
   ],
   priceRange: '$$',
   openingHoursSpecification: [

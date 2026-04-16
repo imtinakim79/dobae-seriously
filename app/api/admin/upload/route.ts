@@ -11,8 +11,10 @@ export async function POST(req: NextRequest) {
 
   const formData = await req.formData();
   const file = formData.get('file') as File | null;
-  const folder = ((formData.get('folder') as string) || 'misc')
+  const folder = ((formData.get('folder') as string) || '')
     .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
     .slice(0, 60) || 'misc';
 
   if (!file || file.size === 0) {
