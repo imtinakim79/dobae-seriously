@@ -98,12 +98,12 @@ export default function ServicesPage() {
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {[
-                  { service: '전체 도배 (합지)', unit: '전용 25평 기준', price: '100만원~' },
-                  { service: '전체 도배 (실크)', unit: '전용 25평 기준', price: '120만원~' },
-                  { service: '입주 도배', unit: '전용 25평 기준', price: '88만원~' },
-                  { service: '친환경 도배', unit: '평당', price: '별도 문의' },
-                  { service: '부분 도배 (거실)', unit: '공간별', price: '별도 문의' },
-                  { service: '상업공간', unit: '현장 방문 후', price: '별도 견적' },
+                  { service: '전체 도배 (합지)', unit: '전용 25평 기준', price: '견적 후 협의' },
+                  { service: '전체 도배 (실크)', unit: '전용 25평 기준', price: '견적 후 협의' },
+                  { service: '입주 도배', unit: '전용 25평 기준', price: '견적 후 협의' },
+                  { service: '친환경 도배', unit: '평당', price: '견적 후 협의' },
+                  { service: '부분 도배 (거실)', unit: '공간별', price: '견적 후 협의' },
+                  { service: '상업공간', unit: '현장 방문 후', price: '견적 후 협의' },
                 ].map((row) => (
                   <tr key={row.service} className="hover:bg-gray-50">
                     <td className="py-3 px-4 font-medium text-gray-900">{row.service}</td>
