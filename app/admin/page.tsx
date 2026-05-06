@@ -212,7 +212,7 @@ export default function AdminPage() {
       {/* 모달 */}
       {modal && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,.4)', zIndex: 50, display: 'flex', alignItems: 'flex-start', justifyContent: 'center', padding: '32px 16px', overflowY: 'auto' }}
-          onClick={e => { if (e.target === e.currentTarget) setModal(false); }}>
+>
           <div style={{ background: '#fff', borderRadius: 16, width: '100%', maxWidth: 640, boxShadow: '0 8px 40px rgba(0,0,0,.15)' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 24px', borderBottom: '1px solid #f3f4f6' }}>
               <b style={{ fontSize: 16 }}>{editing ? '포트폴리오 수정' : '새 시공 추가'}</b>
